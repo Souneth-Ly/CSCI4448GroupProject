@@ -32,6 +32,7 @@
     </dependency>
   </dependencies>
   <build>
+  	<finalName>schoolManagementSystem</finalName>
   	<plugins>
 		<plugin>
 			<groupId>org.apache.tomcat.maven</groupId>
@@ -39,6 +40,5 @@
 			<version>2.2</version>
 		</plugin>
 	</plugins>
-    <finalName>schoolManagementSystem</finalName>
   </build>
 </project>
