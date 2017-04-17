@@ -1,0 +1,12 @@
+spring/controllers/HelloController.class
+randomTesting/Testmodel.class
+spring/model/Teacher.class
+spring/model/Student.class
+spring/controllers/LoginController.class
+spring/controllers/LoginBean.class
+spring/controllers/UserController.class
+randomTesting/Color.class
+spring/config/AppConfig.class
+spring/model/AbstractUser.class
+spring/config/AppInitializer.class
+spring/controllers/WelcomeController.class

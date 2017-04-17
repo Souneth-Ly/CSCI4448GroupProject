@@ -1,0 +1,6 @@
+127.0.0.1 - - [17/Apr/2017:13:29:02 -0600] "GET /SpringMVCTutorial/ HTTP/1.1" 200 81 http-bio-8080-exec-1 1472
+127.0.0.1 - - [17/Apr/2017:13:29:07 -0600] "GET /SpringMVCTutorial/login HTTP/1.1" 200 924 http-bio-8080-exec-2 911
+127.0.0.1 - - [17/Apr/2017:13:29:11 -0600] "POST /SpringMVCTutorial/login HTTP/1.1" 200 944 http-bio-8080-exec-3 111
+127.0.0.1 - - [17/Apr/2017:13:29:18 -0600] "POST /SpringMVCTutorial/login HTTP/1.1" 200 944 http-bio-8080-exec-4 5
+127.0.0.1 - - [17/Apr/2017:13:34:36 -0600] "GET /SpringMVCTutorial/login HTTP/1.1" 200 924 http-bio-8080-exec-6 13
+127.0.0.1 - - [17/Apr/2017:13:34:45 -0600] "POST /SpringMVCTutorial/login HTTP/1.1" 200 944 http-bio-8080-exec-7 17
