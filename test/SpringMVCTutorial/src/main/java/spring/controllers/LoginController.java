@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.model.AbstractUser;
- 
+
 @Controller
 public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -20,7 +20,7 @@ public class LoginController {
         if (loginBean != null && loginBean.getUserName() != null & loginBean.getPassword() != null) {
         	//System.out.print(loginBean.login()[0]);
         	//System.out.print(loginBean.login()[1]);
-            if (loginBean.getUserName().equals("hi1") && loginBean.getPassword().equals("hi123")) {
+            if (loginBean.getUserName().equals("hi1") && loginBean.getPassword().equals("hi123")) { //passwords shouldn't be stred here
                 model.addAttribute("msg", "welcome" + loginBean.getUserName());
                 return "welcomeMessage";
             } else {

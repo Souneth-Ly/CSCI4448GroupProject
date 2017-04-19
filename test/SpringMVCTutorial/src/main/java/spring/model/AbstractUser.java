@@ -5,10 +5,19 @@ public class AbstractUser {
 	//private String email;
 	private String userName;
 	private String password;
-	public String[] login(){
-		String[] array={userName,password};
-		return array;
+	private String[] info={userName,password};
+	
+	public String[] getLogin(){
+		//info={this.userName,this.password};
+		return info;
 	}
+	public void setLogin(String newUserName,String newPassword){ //Apparently the login form sends the data into this class
+		//this.info={newUserName,newPassword};
+		this.info[0]=newUserName;
+		this.info[1]=newPassword;
+	}
+	
+	
 	public String getUserName(){
 		return userName;
 	}
@@ -27,4 +36,5 @@ public class AbstractUser {
 	public void changeName(String newName){
 		this.name=newName;
 	}
+
 }
