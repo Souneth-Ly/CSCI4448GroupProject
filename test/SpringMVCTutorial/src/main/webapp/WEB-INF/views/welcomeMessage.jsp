@@ -9,7 +9,7 @@
 <body>
 	<h2>Hello World, Spring MVC</h2>
 
-	<p>Welcome, ${firstName}</p>
+	<p>${msg}</p>
       <p>Click below button to redirect the result to new page</p>
       
       <form:form method = "GET" action = "/SpringMVCTutorial/hello">

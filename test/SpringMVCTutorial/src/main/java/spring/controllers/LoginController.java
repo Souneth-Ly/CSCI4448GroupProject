@@ -18,10 +18,9 @@ public class LoginController {
     @RequestMapping(method = RequestMethod.POST)
     public String submit(Model model, @ModelAttribute("AbstractUser") AbstractUser loginBean) {
         if (loginBean != null && loginBean.getUserName() != null & loginBean.getPassword() != null) {
-        	//System.out.print(loginBean.login()[0]);
-        	//System.out.print(loginBean.login()[1]);
+
             if (loginBean.getUserName().equals("hi1") && loginBean.getPassword().equals("hi123")) { //passwords shouldn't be stred here
-                model.addAttribute("msg", "welcome" + loginBean.getUserName());
+                model.addAttribute("msg", "Welcome " + loginBean.getUserName());
                 return "welcomeMessage";
             } else {
             	//System.out.print("void entries");
