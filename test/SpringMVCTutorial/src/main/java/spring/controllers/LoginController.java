@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.model.AbstractUser;
-
+import spring.model.Teacher;
+import spring.model.Dean;
+import spring.model.Student;
 @Controller
 public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -16,21 +18,41 @@ public class LoginController {
     }
  
     @RequestMapping(method = RequestMethod.POST)
-    public String submit(Model model, @ModelAttribute("AbstractUser") AbstractUser loginBean) {
-        if (loginBean != null && loginBean.getUserName() != null & loginBean.getPassword() != null) {
-        	//System.out.print(loginBean.login()[0]);
-        	//System.out.print(loginBean.login()[1]);
-            if (loginBean.getUserName().equals("hi1") && loginBean.getPassword().equals("hi123")) { //passwords shouldn't be stred here
-                model.addAttribute("msg", "welcome" + loginBean.getUserName());
-                return "welcomeMessage";
-            } else {
-            	//System.out.print("void entries");
-                model.addAttribute("error", "Invalid Details");
-                return "login";
-            }
-        } else {
-            model.addAttribute("error", "Please enter Details");
-            return "login";
-        }
+    public String submit(Model model, @ModelAttribute("AbstractUser") LoginBean loginBean) {
+        //System.out.print(loginBean.login()[0]);
+        //System.out.print(loginBean.login()[1]);
+    	String type="";
+    	AbstractUser user=null;
+    	AbstractUser defaultUser=new Student();
+    	AbstractUser[] users={defaultUser}; 
+    	for(int i=0;i<=users.length;i++) { 
+    		if (loginBean.getUserName().equals(users[i].getUserName()) 
+    				&& loginBean.getPassword().equals(users[i].getPassword())) { 
+    			//passwords shouldn't be stored here
+    			user=users[i];
+    			break;
+    		} 
+    	}
+    	if(user instanceof Teacher){
+    		Teacher ATeacher=(Teacher) user;
+    		model.addAttribute("msg", "welcome, Instructor" + loginBean.getUserName());
+    		type=ATeacher.getType();
+    	}
+    	else if(user instanceof Student){
+    		Student AStudent=(Student) user;
+    		model.addAttribute("msg", "welcome, " + loginBean.getUserName());
+    		type=AStudent.getType();
+    	}
+    	else if(user instanceof Dean){
+    		Dean ADean=(Dean) user;
+    		model.addAttribute("msg", "welcome, Dean " + loginBean.getUserName());
+    		type=ADean.getType();
+    	}
+    	else{
+    		//System.out.print("void entries");
+    		model.addAttribute("error", "Details don't match anyone");
+    		type="login";
+    	}
+    	return type;
     }
 }

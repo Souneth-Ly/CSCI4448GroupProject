@@ -1,6 +1,7 @@
 package spring.model;
 public class Dean extends AbstractUser {
 	//private String lockdownCode;
+	private String type="Dean";
 	public void addClass(){
 		
 	}
@@ -17,4 +18,8 @@ public class Dean extends AbstractUser {
 	public void displayTeacherList(){
 		
 	}
+	public String getType(){
+		return type;
+	}
+	
 }

@@ -8,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 	<body>
-		<p>here is the hello ${name}</p>
+		<p>${msg}</p>
 	</body>
 </html>

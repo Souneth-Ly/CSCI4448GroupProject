@@ -9,14 +9,19 @@
 <body>
 	<h2>Hello World, Spring MVC</h2>
 
-	<p>Welcome, ${firstName}</p>
+	<p>${msg}</p>
       <p>Click below button to redirect the result to new page</p>
       
       <form:form method = "GET" action = "/SpringMVCTutorial/hello">
          <table>
             <tr>
                <td>
-                  <input type = "submit" value = "hello Page"/>
+                  <input type = "submit" name="hello" value = "hello Page"/>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <input type = "submit"  name= "index" value = "secondbutton"/>
                </td>
             </tr>
          </table>  

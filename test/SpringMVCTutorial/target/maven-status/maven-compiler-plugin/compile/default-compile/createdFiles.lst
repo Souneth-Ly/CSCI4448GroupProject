@@ -5,12 +5,10 @@ spring/model/DeanImplementation.class
 spring/config/AppConfig.class
 spring/config/AppInitializer.class
 spring/controllers/HelloController.class
-randomTesting/Testmodel.class
 spring/model/Student.class
 spring/model/Teacher.class
 spring/controllers/LoginBean.class
 spring/controllers/UserController.class
-randomTesting/Color.class
 spring/model/AbstractUser.class
 spring/model/TeacherImplementation.class
 spring/model/DatabaseStratagy.class
