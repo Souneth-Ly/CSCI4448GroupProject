@@ -16,7 +16,16 @@
          <table>
             <tr>
                <td>
-                  <input type = "submit" value = "hello Page"/>
+                  <input type = "submit" name="hello" value = "Hello Page"/>
+               </td>
+            </tr>
+         </table>  
+      </form:form>
+      <form:form method = "GET" action = "/SpringMVCTutorial/login">
+         <table>
+            <tr>
+               <td>                  
+               		<input type = "submit"  name= "index" value = "Index Page"/>
                </td>
             </tr>
          </table>  

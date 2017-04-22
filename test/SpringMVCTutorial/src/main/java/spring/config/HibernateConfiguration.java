@@ -20,7 +20,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({ "com.javacodegeeks.configuration" })
+@ComponentScan({ "spring.config" })
 @PropertySource(value = { "classpath:application.properties" })
 
 public class HibernateConfiguration {
@@ -32,7 +32,7 @@ public class HibernateConfiguration {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "com.javacodegeeks.model" });
+        sessionFactory.setPackagesToScan(new String[] { "spring.model" });
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
      }

@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 	<body>
-		<h2>Redirected Page</h2>
 		<p>here is the hello ${name}</p>
 	</body>
 </html>
