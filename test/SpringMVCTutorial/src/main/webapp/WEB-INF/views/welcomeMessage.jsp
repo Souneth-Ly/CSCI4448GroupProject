@@ -25,7 +25,7 @@
          <table>
             <tr>
                <td>                  
-               		<input type = "submit"  name= "index" value = "Index Page"/>
+               		<input type = "submit"  name= "login" value = "Login Page"/>
                </td>
             </tr>
          </table>  

@@ -25,11 +25,11 @@ public class LoginController {
     	AbstractUser user=null;
     	
     	// put this into database or somewhere else --------------------
-    	AbstractUser defaultUser=new Teacher();
+    	AbstractUser defaultUser=new Dean();
     	AbstractUser[] users={defaultUser}; 
     	//--------------------------------------------------------------
     	
-    	for(int i=0;i<=users.length;i++) { 
+    	for(int i=0;i<=users.length-1;i++) { 
     		if (loginBean.getUserName().equals(users[i].getUserName()) 
     				&& loginBean.getPassword().equals(users[i].getPassword())) { 
     			//passwords shouldn't be stored here

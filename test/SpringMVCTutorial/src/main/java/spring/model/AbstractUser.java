@@ -1,49 +1,45 @@
 package spring.model;
 
 public class AbstractUser {
-	private String name;
-	//private String email;
-	private String username;
+	private String name="omit";
+	private String userName;
 	private String password;
+	private String[] info={userName,password};
+	
 	public AbstractUser(){
-		this.name="Ivan";
-		this.username="tsar";
-		this.password="rule";
+		name = "";
+		userName = "";
+		password = "";
+		info = null; 
 	}
 	
-	public AbstractUser(String name,String username,String password){
-		this.name=name;
-		this.username=username;
-		this.password=password;
+	public AbstractUser(String name, String userName, String password, String[] info) {
+		this.name = name;
+		this.userName = userName;
+		this.password = password;
+		this.info = info;
 	}
-//	private String[] info={userName,password};
-	
-//	public String[] getLogin(){
-//		info={this.userName,this.password};
-//		return info;
-//	}
-//	public void setLogin(String newUserName,String newPassword){ //Apparently the login form sends the data into this class
+
+
+	public String[] getLogin(){
+		//info={this.userName,this.password};
+		return info;
+	}
+	public void setLogin(String newUserName,String newPassword){ //Apparently the login form sends the data into this class
 		//this.info={newUserName,newPassword};
-//		this.info[0]=newUserName;
-//		this.info[1]=newPassword;
-//	}
+		this.info[0]=newUserName;
+		this.info[1]=newPassword;
+	}
 	
 	
 	public String getUserName(){
-		return username;
+		return userName;
 	}
-	public String getName(){
-		return name;
-	}
-	public void setName(String newName){
-		this.name=newName;
-	}
-	
 	public String getPassword(){
 		return password;
 	}
 	public void setUserName(String newUserName){
-		this.username=newUserName;
+		this.userName=newUserName;
 	}
 	public void setPassword(String newPassword){
 		this.password=newPassword;
@@ -53,6 +49,22 @@ public class AbstractUser {
 	}
 	public void changeName(String newName){
 		this.name=newName;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String[] getInfo() {
+		return info;
+	}
+
+	public void setInfo(String[] info) {
+		this.info = info;
 	}
 
 }
