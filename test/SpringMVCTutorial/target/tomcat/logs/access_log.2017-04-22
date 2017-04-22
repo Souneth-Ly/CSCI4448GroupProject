@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 - - [22/Apr/2017:11:50:16 -0600] "GET /SpringMVCTutorial/welcome HTTP/1.1" 200 822 http-bio-8080-exec-1 957
+0:0:0:0:0:0:0:1 - - [22/Apr/2017:11:50:24 -0600] "GET /SpringMVCTutorial/hello?hello=Hello+Page HTTP/1.1" 200 296 http-bio-8080-exec-2 74
+0:0:0:0:0:0:0:1 - - [22/Apr/2017:11:50:27 -0600] "GET /SpringMVCTutorial/login?index=Index+Page HTTP/1.1" 200 941 http-bio-8080-exec-3 89
+0:0:0:0:0:0:0:1 - - [22/Apr/2017:11:50:33 -0600] "POST /SpringMVCTutorial/login?index=Index+Page HTTP/1.1" 500 3746 http-bio-8080-exec-4 38
+0:0:0:0:0:0:0:1 - - [22/Apr/2017:11:51:56 -0600] "POST /SpringMVCTutorial/login?index=Index+Page HTTP/1.1" 200 967 http-bio-8080-exec-1 186
+0:0:0:0:0:0:0:1 - - [22/Apr/2017:11:52:49 -0600] "POST /SpringMVCTutorial/login?index=Index+Page HTTP/1.1" 200 566 http-bio-8080-exec-2 737
+0:0:0:0:0:0:0:1 - - [22/Apr/2017:11:52:55 -0600] "GET /SpringMVCTutorial/login?login=Back+to+Login HTTP/1.1" 200 944 http-bio-8080-exec-3 5

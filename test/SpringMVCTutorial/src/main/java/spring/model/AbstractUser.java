@@ -2,11 +2,25 @@ package spring.model;
 
 public class AbstractUser {
 	private String name="omit";
-	//private String email;
 	private String userName;
 	private String password;
 	private String[] info={userName,password};
 	
+	public AbstractUser(){
+		name = "";
+		userName = "";
+		password = "";
+		info = null; 
+	}
+	
+	public AbstractUser(String name, String userName, String password, String[] info) {
+		this.name = name;
+		this.userName = userName;
+		this.password = password;
+		this.info = info;
+	}
+
+
 	public String[] getLogin(){
 		//info={this.userName,this.password};
 		return info;
@@ -35,6 +49,22 @@ public class AbstractUser {
 	}
 	public void changeName(String newName){
 		this.name=newName;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String[] getInfo() {
+		return info;
+	}
+
+	public void setInfo(String[] info) {
+		this.info = info;
 	}
 
 }
