@@ -9,5 +9,14 @@
 </head>
 	<body>
 		<p>${msg}</p>
+		<form:form method = "GET" action = "/SpringMVCTutorial/login">
+         <table>
+            <tr>
+               <td>
+                  <input type = "submit" name="login" value = "Back to Login"/>
+               </td>
+            </tr>
+         </table>  
+      </form:form>
 	</body>
 </html>

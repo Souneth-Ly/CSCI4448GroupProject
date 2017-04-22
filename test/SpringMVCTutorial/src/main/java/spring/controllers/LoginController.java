@@ -23,8 +23,12 @@ public class LoginController {
         //System.out.print(loginBean.login()[1]);
     	String type="";
     	AbstractUser user=null;
-    	AbstractUser defaultUser=new Student();
+    	
+    	// put this into database or somewhere else --------------------
+    	AbstractUser defaultUser=new Teacher();
     	AbstractUser[] users={defaultUser}; 
+    	//--------------------------------------------------------------
+    	
     	for(int i=0;i<=users.length;i++) { 
     		if (loginBean.getUserName().equals(users[i].getUserName()) 
     				&& loginBean.getPassword().equals(users[i].getPassword())) { 
@@ -35,17 +39,17 @@ public class LoginController {
     	}
     	if(user instanceof Teacher){
     		Teacher ATeacher=(Teacher) user;
-    		model.addAttribute("msg", "welcome, Instructor" + loginBean.getUserName());
+    		model.addAttribute("msg", "welcome, Instructor" + user.getName());
     		type=ATeacher.getType();
     	}
     	else if(user instanceof Student){
     		Student AStudent=(Student) user;
-    		model.addAttribute("msg", "welcome, " + loginBean.getUserName());
+    		model.addAttribute("msg", "welcome, " + user.getName());
     		type=AStudent.getType();
     	}
     	else if(user instanceof Dean){
     		Dean ADean=(Dean) user;
-    		model.addAttribute("msg", "welcome, Dean " + loginBean.getUserName());
+    		model.addAttribute("msg", "welcome, Dean " + user.getName());
     		type=ADean.getType();
     	}
     	else{
