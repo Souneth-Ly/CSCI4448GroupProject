@@ -9,6 +9,9 @@ import spring.model.AbstractUser;
 import spring.model.Teacher;
 import spring.model.Dean;
 import spring.model.Student;
+import spring.model.UserFactory;
+//import spring.model.Users;
+
 @Controller
 public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -25,7 +28,7 @@ public class LoginController {
     	AbstractUser user=null;
     	
     	// put this into database or somewhere else --------------------
-    	AbstractUser defaultUser=new Dean();
+    	AbstractUser defaultUser= UserFactory.newUser("Dean");
     	AbstractUser[] users={defaultUser}; 
     	//--------------------------------------------------------------
     	
