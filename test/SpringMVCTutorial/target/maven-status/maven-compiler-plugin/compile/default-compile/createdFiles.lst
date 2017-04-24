@@ -1,13 +1,13 @@
 spring/model/StudentImplementation.class
 spring/controllers/LoginController.class
-spring/model/Dean.class
 spring/model/DeanImplementation.class
+spring/model/Dean.class
 spring/config/AppConfig.class
 spring/config/AppInitializer.class
 randomTesting/Testmodel.class
 spring/controllers/HelloController.class
-spring/model/Student.class
 spring/model/Teacher.class
+spring/model/Student.class
 randomTesting/Color.class
 spring/controllers/LoginBean.class
 spring/controllers/UserController.class

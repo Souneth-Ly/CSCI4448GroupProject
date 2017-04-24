@@ -25,7 +25,7 @@ public class LoginController {
     	AbstractUser user=null;
     	
     	// put this into database or somewhere else --------------------
-    	AbstractUser defaultUser=new Teacher();
+    	AbstractUser defaultUser=new Dean();
     	AbstractUser[] users={defaultUser}; 
     	//--------------------------------------------------------------
     	
