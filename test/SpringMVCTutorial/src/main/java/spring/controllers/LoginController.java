@@ -28,7 +28,7 @@ public class LoginController {
     	AbstractUser user=null;
     	
     	// put this into database or somewhere else --------------------
-    	AbstractUser defaultUser= UserFactory.newUser("Dean");
+    	AbstractUser defaultUser= UserFactory.newUser("Dean","Joe","Jon","password");
     	AbstractUser[] users={defaultUser}; 
     	//--------------------------------------------------------------
     	

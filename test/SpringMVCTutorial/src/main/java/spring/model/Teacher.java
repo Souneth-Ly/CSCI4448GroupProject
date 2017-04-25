@@ -24,5 +24,6 @@ public class Teacher extends AbstractUser {
 	}
 	public void getClasses(){
 		
+		//super.name="bob";
 	}
 }

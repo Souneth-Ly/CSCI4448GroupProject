@@ -2,20 +2,20 @@ package spring.model;
 
 public class AbstractUser {
 	private String name="omit";
-	private String userName;
+	private String username;
 	private String password;
-	private String[] info={userName,password};
+	private String[] info={username,password};
 	
 	public AbstractUser(){
 		name = "";
-		userName = "";
+		username = "";
 		password = "";
 		info = null; 
 	}
 	
 	public AbstractUser(String name, String userName, String password, String[] info) {
 		this.name = name;
-		this.userName = userName;
+		this.username = userName;
 		this.password = password;
 		this.info = info;
 	}
@@ -33,13 +33,13 @@ public class AbstractUser {
 	
 	
 	public String getUserName(){
-		return userName;
+		return username;
 	}
 	public String getPassword(){
 		return password;
 	}
 	public void setUserName(String newUserName){
-		this.userName=newUserName;
+		this.username=newUserName;
 	}
 	public void setPassword(String newPassword){
 		this.password=newPassword;
