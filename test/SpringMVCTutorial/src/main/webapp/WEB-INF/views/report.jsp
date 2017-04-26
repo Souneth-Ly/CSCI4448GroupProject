@@ -1,4 +1,3 @@
-
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -15,19 +14,18 @@
         <div align="center">
             <table>
                 <tr>
-                    <td>User Name</td>
+                    <td>Name</td>
                     <td><input type="text" name="userName" /></td>
                 </tr>
                 <tr>
-                    <td>Password</td>
-                    <td><input type="password" name="password" /></td>
+                    <td>Report</td>
+                    <td><input type="text" name="Report" /></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="submit" value="Submit" /></td>
+                    <td><input type="submit" value="Finish Report" /></td>
                 </tr>
             </table>
-            <div style="color: red">${error}</div>
         </div>
     </form:form>
 </body>

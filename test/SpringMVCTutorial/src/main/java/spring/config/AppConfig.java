@@ -1,5 +1,8 @@
 package spring.config;
 
+
+import org.springframework.context.MessageSource;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.context.annotation.*;
 import org.springframework.web.servlet.*;
 import org.springframework.web.servlet.config.annotation.*;
@@ -20,6 +23,13 @@ public class AppConfig extends WebMvcConfigurerAdapter
 
 		return viewResolver;
 	}
+	
+	@Bean
+    public MessageSource messageSource() {
+        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+        messageSource.setBasename("messages");
+        return messageSource;
+    }
 
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) 
@@ -27,3 +37,5 @@ public class AppConfig extends WebMvcConfigurerAdapter
 		configurer.enable();
 	}
 }
+
+
