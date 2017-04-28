@@ -10,12 +10,22 @@
 <title>Insert title here</title>
 </head>
 	<body>
-		<p>${msg}</p>
-		<form:form method = "GET" action = "/SpringMVCTutorial/login">
+		<p> ${msg} </p>
+		<p>some info.  You are: ${name} and your username is: ${username} and your password is: ${password} </p>
+		      <form:form method = "GET" action = "/teacherreport">
          <table>
             <tr>
                <td>
-                  <input type = "submit" name="login" value = "Back to Login"/>
+                  <input type = "button" onclick="location.href='/SpringMVCTutorial/teacherreport'" value = "Write Teacher Report"/>
+               </td>
+            </tr>
+         </table>  
+      </form:form>
+		<form:form method = "GET" action = "/login">
+         <table>
+            <tr>
+               <td>
+                  <input type = "button" onclick="location.href='/SpringMVCTutorial/login'" value = "Back to Login"/>
                </td>
             </tr>
          </table>  
