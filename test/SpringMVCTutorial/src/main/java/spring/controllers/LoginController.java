@@ -9,8 +9,7 @@ import spring.model.AbstractUser;
 import spring.model.Teacher;
 import spring.model.Dean;
 import spring.model.Student;
-import spring.model.UserFactory;
-//import spring.model.Users;
+//import spring.model.UserFactory;
 
 @Controller
 public class LoginController {
@@ -28,8 +27,11 @@ public class LoginController {
     	AbstractUser user=null;
     	
     	// put this into database or somewhere else --------------------
-    	AbstractUser defaultUser= UserFactory.newUser("Dean","Joe","Jon","password");
-    	AbstractUser[] users={defaultUser}; 
+    	//AbstractUser defaultUser=UserFactory.newUser("Student","Average","Joe","hi123");
+    	AbstractUser defaultUser1= new Student("Clarke","spacefan","spaaace");
+    	AbstractUser defaultUser2= Dean.getDean(); //"Average","Joe","hi123");
+    	AbstractUser defaultUser3= new Teacher("Average","Joe","hi123");
+    	AbstractUser[] users={defaultUser1,defaultUser2,defaultUser3}; 
     	//--------------------------------------------------------------
     	
     	for(int i=0;i<=users.length-1;i++) { 

@@ -3,6 +3,11 @@ package spring.model;
 public class Teacher extends AbstractUser {
 	private String report;
 	private String type = "Teacher";
+	public Teacher(){}
+	public Teacher(String name,String username,String password){
+		super(name,username,password);
+		this.report=null;
+	}
 	
 	public String getReport() {
 		return report;
@@ -24,6 +29,5 @@ public class Teacher extends AbstractUser {
 	}
 	public void getClasses(){
 		
-		//super.name="bob";
 	}
 }

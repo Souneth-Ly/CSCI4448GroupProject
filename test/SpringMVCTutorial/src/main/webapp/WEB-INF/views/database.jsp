@@ -10,6 +10,6 @@
 <title>Insert title here</title>
 </head>
 	<body>
-		<p>here is the hello ${name}</p>
+		<p>test database call! Hello, ${name}, your username is: ${username}</p>
 	</body>
 </html>

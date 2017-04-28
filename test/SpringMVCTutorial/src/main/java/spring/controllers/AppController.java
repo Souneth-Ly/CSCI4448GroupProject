@@ -35,7 +35,7 @@
 //    @RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
 //    public String listStudents(ModelMap model) {
 // 
-//        List Students = service.findAllStudents();
+//        List<Student> Students = service.findAllStudents();
 //        model.addAttribute("Students", Students);
 //        return "allStudents";
 //    }
@@ -78,19 +78,19 @@
 //    }
 //     
 ////     // This method will provide the medium to update an existing Student.     
-////    @RequestMapping(value = { "/edit-{ssn}-Student" }, method = RequestMethod.GET)
-////    public String editStudent(@PathVariable String ssn, ModelMap model) {
-////        Student Student = service.findStudentBySsn(ssn);
-////        model.addAttribute("Student", Student);
-////        model.addAttribute("edit", true);
-////        return "registration";
-////    }
+//    @RequestMapping(value = { "/edit-{ssn}-Student" }, method = RequestMethod.GET)
+//    public String editStudent(@PathVariable String name, ModelMap model) {
+//        Student Student = service.findStudentByName(name);
+//        model.addAttribute("Student", Student);
+//        model.addAttribute("edit", true);
+//        return "registration";
+//    }
 //     
 //   
 //     // This method will be called on form submission, handling POST request for
 //     // updating Student in database. It also validates the user input
 //    
-//    @RequestMapping(value = { "/edit-{ssn}-Student" }, method = RequestMethod.POST)
+//    @RequestMapping(value = { "/edit-{name}-Student" }, method = RequestMethod.POST)
 //    public String updateStudent(@Valid Student Student, BindingResult result,
 //            ModelMap model, @PathVariable String ssn) {
 // 
@@ -111,9 +111,9 @@
 //    }
 //         
 //     // This method will delete an Student by it's SSN value.     
-//    @RequestMapping(value = { "/delete-{ssn}-Student" }, method = RequestMethod.GET)
-//    public String deleteStudent(@PathVariable String ssn) {
-//        service.deleteStudentBySsn(ssn);
+//    @RequestMapping(value = { "/delete-{name}-Student" }, method = RequestMethod.GET)
+//    public String deleteStudent(@PathVariable String name) {
+//        service.deleteStudentByName(name);
 //        return "redirect:/list";
 //    }
 // 

@@ -1,86 +1,100 @@
 package spring.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
-import javax.validation.constraints.Digits;
-import javax.persistence.*;
-//import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 
-//import org.hibernate.annotations.Type;
-//import org.hibernate.validator.constraints.NotEmpty;
-//import org.joda.time.LocalDate;
-//import org.springframework.format.annotation.DateTimeFormat;
-
-//@Entity
-//@MappedSuperclass
-//@Table(name="STUDENT")
+@Entity
+@Table(name="STUDENT")
 public class Student extends AbstractUser{
 	
-	
-	
-//	@Id
-//	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private int id;
-	
-//	@Size(min = 5, max = 500)
-//	@Column(name = "REPORT", nullable = false)
-	private String report;
-	
-//	@Digits(integer=6, fraction=2)
-//    @Column(name = "TUITION", nullable = false)
-	private float tuition;
-	
+	@Transient
 	private String type = "Student";
 
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
-	public Student(int id, String report, float tuition) {
-		super();
-		this.id = id;
-		this.report = report;
-		this.tuition = tuition;
-	}
-	public Student() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Student(String name, String userName, String password, String[] info,int id, String report, float tuition) {
-		super(name, userName, password, info);
-		this.id = id;
-		this.report = report;
-		this.tuition = tuition;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	@Column(name = "REPORT")
+	private String report;
+	
+	@Column(name = "TUITION", nullable = false)
+	private double tuition;
+	public Student(){}
+	public Student(String name,String username,String password){
+		super(name,username,password);
+		this.tuition=0;
+		this.report=null;
 	}
 	
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getReport() {
+
+	
+	public String getReport(){
 		return report;
 	}
-	public void setReport(String report) {
+	
+	public void setReport(String report){
 		this.report = report;
 	}
-	public float getTuition() {
+	
+	public double getTuition(){
 		return tuition;
 	}
-	public void setTuition(float tuition) {
+	
+	public void setTuition(double tuition){
 		this.tuition = tuition;
 	}
-	public void displayClasses(){
-		
+	
+	public String getType(){
+		return type;
 	}
-	public void displayReport(){
-		System.out.print(report);
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		result = prime * result + ((this.getName() == null) ? 0 : this.getName().hashCode());
+		return result;
 	}
-	public void payTuition(float amount){
-		this.tuition=this.tuition-amount;
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Student))
+			return false;
+		Student other = (Student) obj;
+		if (id != other.id)
+			return false;
+		if (!this.getName().equals(other.getName())) {
+			return false;
+		}
+		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + this.getName() + ", username=" + this.getUserName() + ", password=" + this.getPassword() + ", report="
+				+ report + ", tuition=" + tuition + "]";
+	}
+	
+	
+	
+
 }

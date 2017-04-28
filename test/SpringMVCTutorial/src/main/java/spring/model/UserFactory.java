@@ -6,9 +6,9 @@ public class UserFactory {
 		if (type.equals("Dean")) {
 			return Dean.getDean();
 		} else if (type.equals("Student")) {
-			return new Student();
+			return new Student(name,username,password);
 		} else if (type.equals("Teacher")) {
-			return new Teacher();
+			return new Teacher(name,username,password);
 		} else return null;
 	}
 }
