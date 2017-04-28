@@ -1,14 +1,27 @@
 package spring.model;
-//this needs to be updated to put the classes in database
+
+import spring.database.DatabaseCaller;
+
+
 public class UserFactory {
-	public static AbstractUser newUser(String type,String name,String username,String password)
+	
+	
+	public static void newUser(String type, String name,String username,String password, DatabaseCaller stu)
 	{
+		//____________THIS IMPLEMENTS SINGLETON___________________
 		if (type.equals("Dean")) {
-			return Dean.getDean();
-		} else if (type.equals("Student")) {
-			return new Student();
+			if(stu.getDeanService().getDean()==null){
+				Dean dean = new Dean(name,username,password);
+				stu.getDeanService().saveDean(dean);
+			}
+		}//____________THIS IMPLEMENTS SINGLETON___________________
+		else if (type.equals("Student")) {
+			Student stew = new Student(name,username,password);
+			stu.getStudentService().saveStudent(stew);
 		} else if (type.equals("Teacher")) {
-			return new Teacher();
-		} else return null;
+			Teacher teach = new Teacher(name,username,password);
+			stu.getTeacherService().saveTeacher(teach);
+		}
 	}
+	
 }

@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 
 
@@ -14,7 +13,16 @@ import javax.persistence.Transient;
 @Table(name="STUDENT")
 public class Student extends AbstractUser{
 	
-	@Transient
+	public Student() {
+		super();
+	}
+
+	public Student(String name, String userName, String password) {
+		super(name, userName, password);
+	}
+
+	
+	@Column(name = "TYPE")
 	private String type = "Student";
 
 	@Id
@@ -84,8 +92,10 @@ public class Student extends AbstractUser{
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + this.getName() + ", username=" + this.getUserName() + ", password=" + this.getPassword() + ", report="
-				+ report + ", tuition=" + tuition + "]";
+		return "Student [id=" + id + ", name=" + this.getName() 
+		+ ", username=" + this.getUserName() + ", password=" 
+		+ this.getPassword() + ", report="
+		+ report + ", tuition=" + tuition + "]";
 	}
 	
 	

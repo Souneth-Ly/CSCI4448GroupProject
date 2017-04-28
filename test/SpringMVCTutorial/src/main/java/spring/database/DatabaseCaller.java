@@ -2,22 +2,19 @@ package spring.database;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Controller;
-import spring.config.AppConfig;
-import spring.config.ApplicationContextProvider;
-import spring.service.StudentService;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
+
+import spring.service.StudentService;
+import spring.service.TeacherService;
+import spring.service.DeanService;
+
 
 @Component
 public class DatabaseCaller {
 	
-	StudentService studentserv;
-	
-
+	private StudentService studentserv;
+	private TeacherService teacherserv;
+	private DeanService deanserv;
 	
 	
 	@Autowired
@@ -31,8 +28,30 @@ public class DatabaseCaller {
 		if(appcontext == null){
 			System.out.println("Appcontext is null");
 		}
-		studentserv = (StudentService) appcontext.getBean("studentService");
+		if(studentserv == null){
+			studentserv = (StudentService) appcontext.getBean("studentService");
+		}
 		return studentserv;
+	}
+	
+	public TeacherService getTeacherService(){
+		if(appcontext == null){
+			System.out.println("Appcontext is null");
+		}
+		if(teacherserv == null){
+			teacherserv = (TeacherService) appcontext.getBean("teacherService");
+		}
+		return teacherserv;
+	}
+	
+	public DeanService getDeanService(){
+		if(appcontext == null){
+			System.out.println("Appcontext is null");
+		}
+		if(deanserv == null){
+			deanserv = (DeanService) appcontext.getBean("deanService");
+		}
+		return deanserv;
 	}
 
 	public ApplicationContext getContext(){

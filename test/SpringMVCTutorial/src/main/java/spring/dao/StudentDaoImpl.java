@@ -13,7 +13,9 @@ import spring.model.Student;
 public class StudentDaoImpl extends AbstractDao implements StudentDao{
 
 	public void saveStudent(Student student) {
-		persist(student);
+		if(findByUserName(student.getUserName())==null){
+			persist(student);
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -29,9 +31,9 @@ public class StudentDaoImpl extends AbstractDao implements StudentDao{
 	}
 
 	
-	public Student findByName(String name){
+	public Student findByUserName(String username){
 		Criteria criteria = getSession().createCriteria(Student.class);
-		criteria.add(Restrictions.eq("name",name));
+		criteria.add(Restrictions.eq("userName",username));
 		return (Student) criteria.uniqueResult();
 	}
 	

@@ -3,7 +3,6 @@ package spring.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,8 +17,6 @@ public class StudentServiceImpl implements StudentService{
 	private StudentDao dao;
 	
 
-
-	
 	public void saveStudent(Student student) {
 		dao.saveStudent(student);
 	}
@@ -32,8 +29,8 @@ public class StudentServiceImpl implements StudentService{
 		dao.deleteStudentByName(name);
 	}
 
-	public Student findByName(String name) {
-		return dao.findByName(name);
+	public Student findByUserName(String username) {
+		return dao.findByUserName(username);
 	}
 
 	public void updateStudent(Student student){

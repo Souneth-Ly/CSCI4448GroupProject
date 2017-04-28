@@ -1,9 +1,6 @@
 package spring.service;
 
 import java.util.List;
-
-import org.springframework.context.ApplicationContext;
-
 import spring.model.Student;
 
 public interface StudentService {
@@ -14,9 +11,8 @@ public interface StudentService {
 
 	void deleteStudentByName(String name);
 
-	Student findByName(String name);
+	Student findByUserName(String username);
 
 	void updateStudent(Student student);
 	
-
 }

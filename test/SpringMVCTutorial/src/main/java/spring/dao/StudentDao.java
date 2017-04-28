@@ -11,7 +11,7 @@ public interface StudentDao {
 	
 	void deleteStudentByName(String name);
 	
-	Student findByName(String name);
+	Student findByUserName(String username);
 	
 	void updateStudent(Student student);
 }

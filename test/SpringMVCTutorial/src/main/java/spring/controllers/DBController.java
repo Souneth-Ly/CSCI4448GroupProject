@@ -1,35 +1,42 @@
 package spring.controllers;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.context.ApplicationContext;
 
 import spring.database.DatabaseCaller;
-import spring.config.AppConfig;
 import spring.model.*;
-import spring.service.StudentService;
-
 
 @Controller
 public class DBController 
 {
-	
-	
 	@Autowired
 	DatabaseCaller stu;
 	
 	@GetMapping("/database")
 	public String database(Model model) 
 	{
-		Student stew = (Student) stu.getStudentService().findByName("Dimitri");
-		model.addAttribute("name", stew.getName());
-		model.addAttribute("username", stew.getUserName());
+		UserFactory.newUser("Student", "Souneth", "soun", "badpassword", stu);
+		UserFactory.newUser("Teacher", "Liz Boeze", "liba1294", "teacherpassword", stu);
+		UserFactory.newUser("Teacher", "Liz Boeze", "liba1294", "teacherpassword", stu);
+		UserFactory.newUser("Dean", "The Dean", "deano", "Dean1!", stu);
+		UserFactory.newUser("Dean", "Dean Shouldn't Exist", "shudntexist", "exists", stu);
+
+;
+		Student stew = (Student) stu.getStudentService().findByUserName("soun");
+		model.addAttribute("student_name", stew.getName());
+		model.addAttribute("student_username", stew.getUserName());
+		
+		Teacher teach = (Teacher) stu.getTeacherService().findByUserName("liba1294");
+		model.addAttribute("teacher_name", teach.getName());
+		model.addAttribute("teacher_username", teach.getUserName());
+		
+		Dean tempDean = (Dean) stu.getDeanService().getDean();
+		model.addAttribute("dean_name", tempDean.getName());
+		model.addAttribute("dean_username", tempDean.getUserName());
+		
+		
 		return "database";
 	}
-
 }

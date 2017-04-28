@@ -1,62 +1,68 @@
 package spring.controllers;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import spring.database.DatabaseCaller;
 import spring.model.AbstractUser;
 import spring.model.Teacher;
 import spring.model.Dean;
 import spring.model.Student;
+
+
 @Controller
+
+
 public class LoginController {
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    
+    
+	@Autowired
+	DatabaseCaller stu;
+    
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
     public String init(Model model) {
         model.addAttribute("msg", "Please Enter Your Login Details");
         return "login";
     }
  
     @RequestMapping(method = RequestMethod.POST)
-    public String submit(Model model, @ModelAttribute("AbstractUser") LoginBean loginBean) {
-        //System.out.print(loginBean.login()[0]);
-        //System.out.print(loginBean.login()[1]);
-    	String type="";
-    	AbstractUser user=null;
+    public String submit(Model model, AbstractUser absuser) {
+    	String type="login";
     	
-    	// put this into database or somewhere else --------------------
-    	AbstractUser defaultUser=new Teacher();
-    	AbstractUser[] users={defaultUser}; 
-    	//--------------------------------------------------------------
-    	
-    	for(int i=0;i<=users.length-1;i++) { 
-    		if (loginBean.getUserName().equals(users[i].getUserName()) 
-    				&& loginBean.getPassword().equals(users[i].getPassword())) { 
-    			//passwords shouldn't be stored here
-    			user=users[i];
-    			break;
-    		} 
+    	//checks if user exists
+    	if(stu.getStudentService().findByUserName(absuser.getUserName())!=null){
+    		Student stew = (Student) stu.getStudentService().findByUserName(absuser.getUserName());
+    		//checks if input password matches password
+    		if(stew.getPassword().equals(absuser.getPassword())){
+    			model.addAttribute("msg", "welcome, " + stew.getName() + " you are a: " + stew.getType());
+    			type=stew.getType();
+    		}
+    		model.addAttribute("error", "Password does not match username");
     	}
-    	if(user instanceof Teacher){
-    		Teacher ATeacher=(Teacher) user;
-    		model.addAttribute("msg", "welcome, Instructor" + user.getName());
-    		type=ATeacher.getType();
+    	//checks if user exists
+    	else if(stu.getTeacherService().findByUserName(absuser.getUserName())!=null){
+    		Teacher teach = (Teacher) stu.getTeacherService().findByUserName(absuser.getUserName());
+    		//checks if input password matches password
+    		if(teach.getPassword().equals(absuser.getPassword())){
+    			model.addAttribute("msg", "welcome, " + teach.getName() + " you are a: " + teach.getType());
+    			type=teach.getType();
+    		}
+    		model.addAttribute("error", "Password does not match username");
     	}
-    	else if(user instanceof Student){
-    		Student AStudent=(Student) user;
-    		model.addAttribute("msg", "welcome, " + user.getName());
-    		type=AStudent.getType();
-    	}
-    	else if(user instanceof Dean){
-    		Dean ADean=(Dean) user;
-    		model.addAttribute("msg", "welcome, Dean " + user.getName());
-    		type=ADean.getType();
-    	}
-    	else{
-    		//System.out.print("void entries");
+    	//checks if user exists
+    	else if(stu.getDeanService().findByUserName(absuser.getUserName())!=null){
+    		Dean dean = (Dean) stu.getDeanService().getDean();
+    		//checks if input password matches password
+    		if(dean.getPassword().equals(absuser.getPassword())){
+    			model.addAttribute("msg", "welcome, " + dean.getName() + " you are a: " + dean.getType());
+    			type=dean.getType();
+    		}
+    		model.addAttribute("error", "Password does not match username");
+    	}else{
     		model.addAttribute("error", "Details don't match anyone");
-    		type="login";
     	}
-    	return type;
+		return type;
     }
 }

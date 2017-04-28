@@ -1,4 +1,4 @@
-to start mysqy type the following:
+to start mysql type the following:
 
 mysql -u root -p
 it will prompt you for password -- enter your password
@@ -10,11 +10,29 @@ CREATE DATABASE TEST;
 
 USE TEST;
 
-
-CREATE TABLE STUDENT(id INT NOT NULL auto_increment,
+CREATE TABLE STUDENT(
+id INT NOT NULL auto_increment,
+type VARCHAR(30) NOT NULL,
  name VARCHAR(50) NOT NULL,
  username VARCHAR(50) NOT NULL,
- password VARCHAR(50), 
- tuition DOUBLE NOT NULL, 
- report VARCHAR(100) NOT NULL, 
+ password VARCHAR(50) NOT NULL, 
+ tuition DOUBLE, 
+ report VARCHAR(100), 
  PRIMARY KEY(id));
+ 
+CREATE TABLE TEACHER(
+id INT NOT NULL auto_increment,
+type VARCHAR(30) NOT NULL,
+name VARCHAR(50) NOT NULL,
+username VARCHAR(50) NOT NULL,
+password VARCHAR(50) NOT NULL, 
+report VARCHAR(100), 
+PRIMARY KEY(id));
+
+CREATE TABLE DEAN(
+id INT NOT NULL auto_increment,
+type VARCHAR(30) NOT NULL,
+name VARCHAR(50) NOT NULL,
+username VARCHAR(50) NOT NULL,
+password VARCHAR(50) NOT NULL, 
+PRIMARY KEY(id));
