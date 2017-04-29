@@ -13,18 +13,27 @@
     <form:form name="submitForm" method="POST">
         <div align="center">
             <table>
-                <tr>
-                    <td>Name</td>
-                    <td><input type="text" name="userName" /></td>
+            <tr>
+                    <td>Old Password:</td>
+                    <td><input type="text" name="old_password" /></td>
                 </tr>
                 <tr>
-                    <td>Report</td>
-                    <td><input type="text" name="Report" /></td>
+                    <td>New Password</td>
+                    <td><input type="text" name="new_password" /></td>
+                </tr>
+                <tr>
+                    <td>Verify New Password</td>
+                    <td><input type="text" name="confirm_new_password" /></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="submit" value="Finish Report" /></td>
+                    <td><input type="submit" value="Change Password" /></td>
                 </tr>
+                <tr>
+               <td>
+                  <input type = "button" onclick="location.href='/SpringMVCTutorial/student'" value = "Back"/>
+               </td>
+            </tr>
             </table>
         </div>
     </form:form>
