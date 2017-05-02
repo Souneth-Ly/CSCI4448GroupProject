@@ -17,10 +17,9 @@ public class DBController
 	@GetMapping("/database")
 	public String database(Model model) 
 	{
+		UserFactory.newUser("Teacher", "Frank", "franky", "frankster", stu);
 		UserFactory.newUser("Student", "Souneth", "soun", "badpassword", stu);
 		UserFactory.newUser("Student", "Bob", "bob", "bob", stu);
-		UserFactory.newUser("Teacher", "Liz Boeze", "liba1294", "teacherpassword", stu);
-		UserFactory.newUser("Teacher", "Liz Boeze", "liba1294", "teacherpassword", stu);
 		UserFactory.newUser("Dean", "The Dean", "deano", "Dean1!", stu);
 		UserFactory.newUser("Dean", "Dean Shouldn't Exist", "shudntexist", "exists", stu);
 
@@ -29,7 +28,7 @@ public class DBController
 		model.addAttribute("student_name", stew.getName());
 		model.addAttribute("student_username", stew.getUserName());
 		
-		Teacher teach = (Teacher) stu.getTeacherService().findByUserName("liba1294");
+		Teacher teach = (Teacher) stu.getTeacherService().findByUserName("franky");
 		model.addAttribute("teacher_name", teach.getName());
 		model.addAttribute("teacher_username", teach.getUserName());
 		
